@@ -1,6 +1,6 @@
 ﻿namespace pryDiFiniRepuestos
 {
-    partial class Form1
+    partial class frmRepuestos
     {
         /// <summary>
         ///  Required designer variable.
