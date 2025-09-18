@@ -40,7 +40,7 @@
             lblNRepuesto = new Label();
             cmbOrigen = new ComboBox();
             lblOrigen = new Label();
-            comboBox1 = new ComboBox();
+            cmbMarcas = new ComboBox();
             grpConsulta = new GroupBox();
             lstResultados = new ListBox();
             btnConsultar = new Button();
@@ -74,7 +74,7 @@
             grpRepuesto.Controls.Add(lblNRepuesto);
             grpRepuesto.Controls.Add(cmbOrigen);
             grpRepuesto.Controls.Add(lblOrigen);
-            grpRepuesto.Controls.Add(comboBox1);
+            grpRepuesto.Controls.Add(cmbMarcas);
             grpRepuesto.Controls.Add(lblMarca);
             grpRepuesto.Location = new Point(21, 24);
             grpRepuesto.Name = "grpRepuesto";
@@ -91,6 +91,7 @@
             btnRegistrar.TabIndex = 3;
             btnRegistrar.Text = "Registrar";
             btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // btnSalir
             // 
@@ -100,6 +101,7 @@
             btnSalir.TabIndex = 4;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // txtPrecio
             // 
@@ -169,14 +171,14 @@
             lblOrigen.TabIndex = 3;
             lblOrigen.Text = "Origen del repuesto";
             // 
-            // comboBox1
+            // cmbMarcas
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "P", "F", "R" });
-            comboBox1.Location = new Point(195, 45);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 2;
+            cmbMarcas.FormattingEnabled = true;
+            cmbMarcas.Items.AddRange(new object[] { "P", "F", "R" });
+            cmbMarcas.Location = new Point(195, 45);
+            cmbMarcas.Name = "cmbMarcas";
+            cmbMarcas.Size = new Size(151, 28);
+            cmbMarcas.TabIndex = 2;
             // 
             // grpConsulta
             // 
@@ -210,6 +212,7 @@
             btnConsultar.TabIndex = 15;
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
+            btnConsultar.Click += btnConsultar_Click;
             // 
             // optImportado
             // 
@@ -282,7 +285,7 @@
         private Label lblMarca;
         private GroupBox grpRepuesto;
         private Label lblOrigen;
-        private ComboBox comboBox1;
+        private ComboBox cmbMarcas;
         private ComboBox cmbOrigen;
         private TextBox txtNRegistro;
         private Label lblNRepuesto;
