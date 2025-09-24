@@ -17,10 +17,17 @@ namespace pryDiFiniRepuestos
         public frmRepuestos()
         {
             InitializeComponent();
+            cmbMarcas.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            if (cmbOrigen.Text != " " && cmbMarcas.Text != " " && txtRepuesto.Text != " " && txtDescripcion.Text != " " && txtPrecio.Text != " ")
+            {
+                btnRegistrar.Enabled = true;
+            }
             // Verifico que haya espacio en el arreglo
             if (indice >= 100)
             {
@@ -32,7 +39,7 @@ namespace pryDiFiniRepuestos
             Repuesto r = new Repuesto();
             r.marca = cmbMarcas.Text;
             r.origen = cmbOrigen.Text;
-            r.numero = int.Parse(txtNRegistro.Text);
+            r.numero = int.Parse(txtRepuesto.Text);
             r.descripcion = txtDescripcion.Text;
             r.precio = float.Parse(txtPrecio.Text);
 
@@ -45,7 +52,7 @@ namespace pryDiFiniRepuestos
             // Limpio los controles para el siguiente ingreso
             cmbMarcas.SelectedIndex = -1;
             cmbOrigen.SelectedIndex = -1;
-            txtNRegistro.Clear();
+            txtRepuesto.Clear();
             txtDescripcion.Clear();
             txtPrecio.Clear();
         }
@@ -79,6 +86,40 @@ namespace pryDiFiniRepuestos
                     );
                 }
             }
+        }
+
+        private void txtRepuesto_TextChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRepuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbMarcas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
