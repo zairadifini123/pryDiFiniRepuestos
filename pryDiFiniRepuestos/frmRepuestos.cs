@@ -19,15 +19,13 @@ namespace pryDiFiniRepuestos
             InitializeComponent();
             cmbMarcas.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbElegirMarca.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (cmbOrigen.Text != " " && cmbMarcas.Text != " " && txtRepuesto.Text != " " && txtDescripcion.Text != " " && txtPrecio.Text != " ")
-            {
-                btnRegistrar.Enabled = true;
-            }
+            
             // Verifico que haya espacio en el arreglo
             if (indice >= 100)
             {
@@ -48,6 +46,7 @@ namespace pryDiFiniRepuestos
             indice++;
 
             MessageBox.Show("Repuesto registrado.");
+            btnRegistrar.Enabled = false; 
 
             // Limpio los controles para el siguiente ingreso
             cmbMarcas.SelectedIndex = -1;
@@ -119,7 +118,42 @@ namespace pryDiFiniRepuestos
 
         private void cmbMarcas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (cmbMarcas.Text != "")
+            {
+                cmbOrigen.Enabled = true;
+            }
+        }
+
+        private void cmbOrigen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbOrigen.Text != "")
+            {
+                txtRepuesto.Enabled = true;
+            }
+        }
+
+        private void txtRepuesto_TextChanged(object sender, EventArgs e)
+        {
+            if (txtRepuesto.Text != "")
+            {
+                txtDescripcion.Enabled = true;
+            }
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDescripcion.Text != "")
+            {
+                txtPrecio.Enabled = true;
+            }
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPrecio.Text != "")
+            {
+                btnRegistrar.Enabled = true;
+            }
         }
     }
 }
